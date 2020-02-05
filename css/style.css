@@ -22,6 +22,12 @@ body {
   background: #ffd900;
 }
 
+.content {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+}
+
 @keyframes mount {
   0% {
     opacity: 0;
