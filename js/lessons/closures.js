@@ -1,5 +1,3 @@
-function closures() {
-  return 'hello';
+export function closures() {
+  console.log('Closures');
 }
-
-export default closures;
