@@ -1,3 +1,3 @@
-export function closures() {
-  console.log('Closures');
+export const closures = () => {
+  return 'The closures function has run successfully';
 }
