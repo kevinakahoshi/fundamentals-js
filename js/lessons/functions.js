@@ -1,3 +1,3 @@
-export function functions() {
-  console.log('Functions');
+export const functions = () => {
+  return 'The functions function has run successfully';
 }
