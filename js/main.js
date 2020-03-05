@@ -10,13 +10,12 @@ const documentReady = callback => {
 
 const  initializeApp = () => {
   const contentArea = document.getElementsByClassName('content');
-  const heading = document.createElement('h1');
-  const headingText = 'This is a test';
-  heading.innerText = headingText;
-  contentArea[0].appendChild(heading);
-
   const topicForm = document.querySelector('#topic-form');
   const lessonSelect = document.querySelector('#lesson-select');
+  const heading = document.createElement('h1');
+  const headingText = 'Select a lesson from the dropdown above to get started.';
+  heading.innerText = headingText;
+  contentArea[0].appendChild(heading);
 
   createOptions(lessonSelect);
 
@@ -29,7 +28,7 @@ const  initializeApp = () => {
 const createOptions = lessonSelect => {
   for (const keys in window.lessons) {
     const option = document.createElement('option');
-    const optionText = keys[0].toUpperCase() + keys.slice(1, keys.length);
+    const optionText = keys[0].toUpperCase() + keys.slice(1);
     option.value = keys;
     option.innerHTML = optionText;
     lessonSelect.appendChild(option);
