@@ -9,14 +9,19 @@ const documentReady = callback => {
 }
 
 const  initializeApp = () => {
+  const header = document.querySelector('.header');
   const contentArea = document.querySelector('.content');
-  const topicForm = document.querySelector('#topic-form');
-  const lessonSelect = document.querySelector('#lesson-select');
+  const topicForm = document.querySelector('.topic-form');
+  const lessonSelect = document.querySelector('.lesson-select');
   const heading = document.createElement('h1');
-  heading.classList.add('testing');
   const headingText = 'Select a lesson from the dropdown above to get started.';
+  heading.classList.add('testing');
   heading.innerText = headingText;
   contentArea.appendChild(heading);
+
+  window.addEventListener('scroll', () => {
+    parallaxImage(header);
+  }, false);
 
   createOptions(lessonSelect);
 
@@ -45,6 +50,11 @@ const destroyDOM = mainContainer => {
   setTimeout(() => {
     mainContainer.innerHTML = '';
   }, 300);
+}
+
+const parallaxImage = header => {
+  const scrollTop = window.pageYOffset;
+  header.style.backgroundPositionY = 20 + scrollTop * .05 + '%';
 }
 
 documentReady(initializeApp);
