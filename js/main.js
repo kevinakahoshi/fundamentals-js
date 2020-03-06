@@ -9,19 +9,23 @@ const documentReady = callback => {
 }
 
 const  initializeApp = () => {
-  const contentArea = document.getElementsByClassName('content');
+  const contentArea = document.querySelector('.content');
   const topicForm = document.querySelector('#topic-form');
   const lessonSelect = document.querySelector('#lesson-select');
   const heading = document.createElement('h1');
+  heading.classList.add('testing');
   const headingText = 'Select a lesson from the dropdown above to get started.';
   heading.innerText = headingText;
-  contentArea[0].appendChild(heading);
+  contentArea.appendChild(heading);
 
   createOptions(lessonSelect);
 
   topicForm.addEventListener('submit', event => {
     event.preventDefault();
-    heading.innerText = window.lessons[lessonSelect.value]();
+    destroyDOM(contentArea);
+    setTimeout(() => {
+      window.lessons[lessonSelect.value](contentArea);
+    }, 300);
   });
 }
 
@@ -33,6 +37,14 @@ const createOptions = lessonSelect => {
     option.innerHTML = optionText;
     lessonSelect.appendChild(option);
   }
+}
+
+const destroyDOM = mainContainer => {
+  mainContainer.children[0].classList.remove('mount');
+  mainContainer.children[0].classList.add('unmount');
+  setTimeout(() => {
+    mainContainer.innerHTML = '';
+  }, 300);
 }
 
 documentReady(initializeApp);
