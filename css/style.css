@@ -19,8 +19,44 @@ body {
 }
 
 .header {
-  background: #ffd900;
+  min-height: 80vh;
+  background-image: linear-gradient(#ffd900dc, #ffd900dc), url('/assets/hexagons-2.jpg');
+  background-size: cover;
+  background-position-y: 20%;
+  display: flex;
 }
+
+.hero-text {
+  text-align: center;
+}
+
+.topic-form {
+  margin-bottom: 1.5rem;
+}
+
+.topic-form > * {
+  outline: none;
+}
+
+.lesson-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: .5rem;
+  text-align: center;
+}
+
+.topic-form button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: .5rem;
+}
+
+/* .lesson-select:after {
+  content: 'v';
+} */
 
 .content {
   padding: 1rem;
