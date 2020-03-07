@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper {
-  padding: 0 1rem;
+  padding: 4rem 1rem;
 }
 
 .container {
@@ -24,6 +24,10 @@ body {
   background-size: cover;
   background-position-y: 20%;
   display: flex;
+}
+
+.footer {
+  background: #222;
 }
 
 .hero-text {
@@ -45,6 +49,7 @@ body {
   padding: 1rem 2rem;
   font-size: 1rem;
   border-radius: .5rem;
+  background: #fff;
   text-align: center;
 }
 
@@ -54,15 +59,22 @@ body {
   border-radius: .5rem;
 }
 
-/* .lesson-select:after {
+.lesson-select:after {
   content: 'v';
-} */
+}
 
 .content {
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: .5rem;
   transition: .3s all;
+}
+
+pre {
+  padding: 1rem;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
 }
 
 .mount {

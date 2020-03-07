@@ -1,6 +1,11 @@
 import { closures } from './lessons/closures.js';
 import { functions } from './lessons/functions.js';
-window.lessons = { closures, functions };
+import { variables } from './lessons/variables.js';
+window.lessons = {
+  variables,
+  functions,
+  closures
+};
 
 const documentReady = callback => {
   document.readyState === 'interactive' || document.readyState === 'complete'
@@ -45,8 +50,11 @@ const createOptions = lessonSelect => {
 }
 
 const destroyDOM = mainContainer => {
-  mainContainer.children[0].classList.remove('mount');
-  mainContainer.children[0].classList.add('unmount');
+  const childNodes = Array.from(mainContainer.children);
+  childNodes.forEach(element => {
+    element.classList.remove('mount');
+    element.classList.add('unmount');
+  });
   setTimeout(() => {
     mainContainer.innerHTML = '';
   }, 300);
@@ -54,7 +62,7 @@ const destroyDOM = mainContainer => {
 
 const parallaxImage = header => {
   const scrollTop = window.pageYOffset;
-  header.style.backgroundPositionY = 20 + scrollTop * .05 + '%';
+  header.style.backgroundPositionY = 20 - scrollTop * .05 + '%';
 }
 
 documentReady(initializeApp);
