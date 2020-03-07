@@ -8,7 +8,7 @@ export const variables = contentArea => {
   initialSubheading.classList.add('mount');
 
   const preBox = document.createElement('pre');
-  preBox.innerText = 'var index = 1;';
+  preBox.innerText = 'var index = 1;\n\nconst newArr = [1, 2, 3, 4];\n\nlet isEditing = true;';
   preBox.classList.add('mount');
 
   contentArea.appendChild(initialHeading);
