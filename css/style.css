@@ -28,6 +28,7 @@ body {
 
 .footer {
   background: #222;
+  color: #fff;
 }
 
 .hero-text {
@@ -72,8 +73,9 @@ body {
 
 pre {
   padding: 1rem;
-  background: #f1f1f1;
-  border: 1px solid #ccc;
+  background: #222;
+  border: 1px solid #222;
+  color: #ffd23c;
   border-radius: .5rem;
 }
 
