@@ -61,8 +61,7 @@ const destroyDOM = mainContainer => {
 }
 
 const parallaxImage = header => {
-  const scrollTop = window.pageYOffset;
-  header.style.backgroundPositionY = 20 - scrollTop * .05 + '%';
+  header.style.backgroundPositionY = `${20 + window.pageYOffset * .025}%`;
 }
 
 documentReady(initializeApp);
