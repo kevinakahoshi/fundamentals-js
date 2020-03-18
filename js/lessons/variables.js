@@ -15,11 +15,54 @@ export const variables = contentArea => {
   initialHeading.classList.add('mount');
 
   const preBox = document.createElement('pre');
-  preBox.innerText = 'var index = 0;\n\nvar isEditing = true;\n\nvar someString = "Hello, world."';
+  const spanTag = document.createElement('span');
+  spanTag.classList.add('mount');
+
+  const varText = 'var index = 0;';
+  const boolText = 'var isEditing = true;';
+  const stringText = 'var someString = "Hello, world."';
+
+  const es5Syntax = [
+    varText,
+    boolText,
+    stringText
+  ];
+
+  let currentIndex = 0;
+
+  spanTag.innerText = es5Syntax[currentIndex];
+  preBox.appendChild(spanTag);
   preBox.classList.add('mount');
 
-  contentArea.appendChild(initialHeading);
-  contentArea.appendChild(varDefinition)
-  contentArea.appendChild(initialSubheading);
-  contentArea.appendChild(preBox);
+  const nextButton = document.createElement('button');
+  nextButton.innerText = 'What about booleans?'
+  nextButton.classList.add('mount');
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < 2) {
+      currentIndex++;
+    }
+    switch (currentIndex) {
+      case 1: {
+        nextButton.innerText = 'How about a string?';
+        break;
+      }
+      case 2: {
+        nextButton.innerText = 'Nice! What\'s next?';
+        break;
+      }
+    }
+    spanTag.innerText = es5Syntax[currentIndex];
+  });
+
+  const elementsArray = [
+    initialHeading,
+    varDefinition,
+    initialHeading,
+    preBox,
+    nextButton
+  ];
+
+  elementsArray.map(element => {
+    contentArea.appendChild(element);
+  });
 }
